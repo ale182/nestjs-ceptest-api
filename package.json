@@ -33,6 +33,7 @@
     "@nestjs/swagger": "^4.5.1",
     "@nestjs/typeorm": "^7.0.0",
     "axios": "^0.19.2",
+    "coordenadas-do-cep": "^1.2.0",
     "moment": "^2.27.0",
     "mysql": "^2.18.1",
     "nestjs-command": "^1.4.0",
