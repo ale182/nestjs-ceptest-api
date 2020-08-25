@@ -11,7 +11,7 @@ import {CepController} from "./cep/cep.controller";
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    //TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
+    TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     CepModule
   ],
   controllers: [AppController,CepController],

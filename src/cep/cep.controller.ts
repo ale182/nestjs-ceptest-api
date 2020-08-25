@@ -2,11 +2,20 @@ import {Body, Controller, Get, Param, Post,} from '@nestjs/common';
 import {CepService} from './cep.service';
 import {ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags,} from '@nestjs/swagger';
 import {DistanciaDto} from "./dto/distancia.dto";
+import {CepEntity} from "./cep.entity";
 
 @ApiTags('cep')
 @Controller()
 export class CepController {
     constructor(private readonly cepService: CepService) {
+    }
+
+    @ApiOperation({summary: 'Get test'})
+    @ApiResponse({status: 200, description: 'Test'})
+    @ApiResponse({status: 401, description: 'Unauthorized'})
+    @Get('getAll')
+    async getAll(): Promise<any[]> {
+        return await this.cepService.updateCoordenadasGoogle();
     }
 
     @ApiOperation({summary: 'Get test'})

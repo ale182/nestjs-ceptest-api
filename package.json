@@ -35,13 +35,15 @@
     "axios": "^0.19.2",
     "coordenadas-do-cep": "^1.2.0",
     "moment": "^2.27.0",
+    "mssql": "^6.2.1",
     "mysql": "^2.18.1",
     "nestjs-command": "^1.4.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
     "swagger-ui-express": "^4.1.4",
-    "typeorm": "^0.2.25"
+    "typeorm": "^0.2.25",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",

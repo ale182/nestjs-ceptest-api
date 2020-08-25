@@ -31,23 +31,27 @@ class ConfigService {
 
   public getTypeOrmConfig(): TypeOrmModuleOptions {
     return {
-      type: 'mysql',
-
+      type: 'mssql',
+      name: this.getValue('DATABASE_NAME'),
       host: this.getValue('DATABASE_HOST'),
       port: parseInt(this.getValue('DATABASE_PORT')),
       username: this.getValue('DATABASE_USER'),
       password: this.getValue('DATABASE_PASSWORD'),
       database: this.getValue('DATABASE_NAME'),
+      schema: this.getValue('DATABASE_SCHEMA'),
       timezone: this.getValue('DATABASE_TZ'),
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       migrationsRun: true,
-      logging: this.isProduction() ? null : 'all',
+      connectionTimeout: 300000,
+      requestTimeout: 300000,
+      //logging: this.isProduction() ? null : 'all',
       migrations: [__dirname + '/../migrations/**/*{.ts,.js}'],
       cli: {
         migrationsDir: 'src/migrations',
       },
-
       ssl: this.isProduction(),
+      synchronize:true,
+      //logging:true
     };
   }
 
@@ -79,6 +83,7 @@ const configService = new ConfigService(process.env).ensureValues([
   'DATABASE_USER',
   'DATABASE_PASSWORD',
   'DATABASE_NAME',
+  'DATABASE_SCHEMA',
   'DATABASE_TZ',
   'SECRET',
 ]);
